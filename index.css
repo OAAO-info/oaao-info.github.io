@@ -73,39 +73,40 @@
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  font-size: 1em;
 }
 
-.home-nav12 {
-  transition: 0.3s;
-}
-
-.home-nav2 {
-  transition: 0.3s;
-  margin-left: var(--dl-space-space-twounits);
-}
-
-.home-nav3 {
+.home-nav {
+  color: #fff;
+  font-size: 1.2em;
   transition: 0.3s;
   margin-left: var(--dl-space-space-twounits);
+  text-decoration: none;
 }
 
-.home-nav4 {
-  transition: 0.3s;
-  margin-left: var(--dl-space-space-twounits);
+.home-nav:hover{
+  text-decoration: none;
+  color: var(--dl-color-custom-primary2);
 }
 
-.home-nav5 {
-  transition: 0.3s;
-  margin-left: var(--dl-space-space-twounits);
+.active {
+  color: var(--dl-color-custom-primary1);
+  text-decoration: none;
+}
+
+.disabled {
+  color: var(--dl-color-gray-700);
+  text-decoration: none;
+  pointer-events: none;
 }
 
 .home-buttons {
   display: flex;
   align-items: center;
-  flex-direction: row;
   justify-content: space-between;
-  margin-left: 65%; /* This will move the tabs to the right */
-  margin-top: -20px; /* Adjust this value to move the button up */
+  float: right;
+  flex-direction: row;
+  margin-left: auto;
 }
 
 .home-login {
@@ -135,11 +136,11 @@
   justify-content: space-between;
 }
 
-.home-nav {
+/* .home-nav {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-}
+} */
 
 .home-top {
   width: 100%;
@@ -1187,4 +1188,50 @@
 .calendarEvent {
   font-size: 1em;
   margin-top: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.record {
+  width: 90%;
+  font-size: 1.1em;
+  margin-top: 10px;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+}
+
+#record-list-container {
+  background: transparent;
+  padding: 20px;
+  padding-left: 0;
+}
+
+#record-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#record-list li {
+  background-color: #202134;
+  /* padding: 10px 20px; */
+  margin-bottom: 10px;
+  transition: .5s;
+}
+
+#record-list li:hover {
+  /* background-color: #232438; */
+}
+
+a {
+  transition: .5s;
+  text-decoration: none;
+  color: var(--dl-color-custom-primary1);
+}
+
+a:hover {
+  color: var(--dl-color-custom-primary2);
 }

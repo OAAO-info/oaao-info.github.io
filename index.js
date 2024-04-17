@@ -197,3 +197,60 @@ async function fetchData() {
 }
 
 fetchData();
+
+const apiKey = 'patr5LyzFGyLcGFV1.1e042019e262b9394b9129375034b7eb20a6e59984d52e59d121ac0c0fd21f25';
+const baseId = 'appGQR3YLk3KQzD6a';
+const tableName = 'Table 1';
+
+function fetchAndDisplayRecords() {
+  fetch(`https://api.airtable.com/v0/${baseId}/${tableName}`, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    displayRecords(data.records);
+  })
+  .catch(error => {
+    console.error('Error fetching Airtable data:', error);
+  });
+}
+
+function displayRecords(records) {
+    const recordList = document.getElementById('record-list');
+
+    // Sort the records by the Start field in descending order
+    records.sort((a, b) => new Date(b.fields.Start) - new Date(a.fields.Start));
+
+    records.forEach(record => {
+      const listItem = document.createElement('li');
+
+      // Convert the Start field to a Date object
+      const startDate = new Date(record.fields.Start);
+
+      // Format the date as a string in dd/mm/yyyy format
+      const start = `${startDate.getDate().toString().padStart(2, '0')}/${(startDate.getMonth() + 1).toString().padStart(2, '0')}/${startDate.getFullYear()}`;
+
+      const html = `
+        <div class="record">
+          <h1 class="field-title">${record.fields.Title}</h1>
+          <h4>${start}</h4>
+          <!-- <p class="field-description">${'Description'}: ${record.fields.Description}</p> -->
+          <h3>Individual Round</h3>
+          <a class="InTest" href="${record.fields.InTest}" target="_blank">${'Test'}</a>
+          <a class="InSol" href="${record.fields.InSol}" target="_blank">${'Solution'}</a>
+          <br>
+          <h3>Team Round</h3>
+          <a class="TeTest" href="${record.fields.TeTest}" target="_blank">${'Test'}</a>
+          <a class="TeSol" href="${record.fields.TeSol}" target="_blank">${'Solution'}</a>
+        </div>
+      `;
+
+      listItem.innerHTML = html;
+
+      recordList.appendChild(listItem);
+    });
+  }
+
+// fetchAndDisplayRecords();
