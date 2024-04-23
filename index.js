@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   }
 
 
+
   const canvas = document.getElementById('backgroundCanvas');
   const ctx = canvas.getContext('2d');
 
