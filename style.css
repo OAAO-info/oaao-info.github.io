@@ -121,6 +121,7 @@
   flex-direction: row;
   justify-content: flex-start;
   background-color: #202134;
+  opacity: 90%;
 }
 
 .featuresIcon {
