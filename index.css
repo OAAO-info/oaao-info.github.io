@@ -1235,3 +1235,33 @@ a {
 a:hover {
   color: var(--dl-color-custom-primary2);
 }
+
+.about-me-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Add padding to increase space without changing box width */
+  width: calc(100% - 40px); /* Ensure the container takes up more space */
+}
+
+.about-me-block {
+  background-color: #202134;
+  color: var(--dl-color-custom-neutral-light);
+  border-radius: 15px;
+  width: 250px; /* Adjusted width for four blocks per row */
+  height: 500px; /* Increased height for more vertical space */
+  margin-bottom: 30px; /* Increased margin for more space between rows */
+  margin-right: 0; /* Removed right margin */
+  margin-left: 10px; /* Adjusted margin for space between blocks */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.about-me-block:hover {
+  transform: scale(1.05);
+}
