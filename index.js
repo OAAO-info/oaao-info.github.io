@@ -160,36 +160,9 @@ window.onload = function() {
 const calendarURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8T20PnJhqmGWRoioSBbgGOru87CKhDqfaBwCip8yaffcNZEacFMmpIagblVyT6laQUwLnGvmUvnCL/pub?gid=0&single=true&output=csv"
 
 async function csvToArray(url) {
-  try {
-    const response = await fetch(url);
-
-    const csvData = await response.text();
-
-    console.log(csvData);
-
-    var csvArray = csvData.split("\n");
-
-    console.log(csvArray);
-
-    document.getElementById('calendar').textContent = "";
-    for (let i = 0; i < csvArray.length; i++) {
-      var event = document.createElement("div");
-      var date = document.createElement("span");
-      var txt = document.createElement("span");
-      event.classList.add("calendarEvent");
-      date.textContent = csvArray[i].split(",")[0];
-      date.style.fontWeight = "bold";
-      txt.textContent = ": " + csvArray[i].split(",")[1];
-      event.appendChild(date);
-      event.appendChild(txt);
-      document.getElementById('calendar').appendChild(event);
-    }
-
-    return csvArray;
-  } catch (error) {
-    console.error('Error fetching CSV:', error);
-    return null;
-  }
+  // Set calendar to show "coming soon!" instead of fetching data
+  document.getElementById('calendar').textContent = "coming soon!";
+  return [];
 }
 
 async function fetchData() {
